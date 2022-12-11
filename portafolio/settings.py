@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure--a@gmn(^1i2@c(bz)p)7+jh@*&0-6v^bn^ewht^)l91_d)nd6(
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['https://portafoliorailway-production-8fcc.up.railway.app/']
+ALLOWED_HOSTS = ['portafoliorailway-production-8fcc.up.railway.app']
 
 
 # Application definition
