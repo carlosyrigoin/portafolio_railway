@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--a@gmn(^1i2@c(bz)p)7+jh@*&0-6v^bn^ewht^)l91_d)nd6('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['portafoliorailway-production-8fcc.up.railway.app']
@@ -126,8 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'portafolio/static'),)
 STATIC_ROOT = os.path.join(BASE_DIR, 'portafolio/staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'portafolio/static'),]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
