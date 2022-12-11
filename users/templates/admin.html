@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Proyecto Portafolio - Silabuz" name="description">
+
+        <title>Portafolio | Administrar</title>
+        <link href="{% static 'img/favicon.png' %}" rel="icon">
+        <link href="{% static 'img/favicon-apple.png' %}" rel="apple-touch-icon">
+
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'css/aos.css' %}" rel="stylesheet">
+        <link href="{% static 'css/main.css' %}" rel="stylesheet">
+    </head>
+    <body class="page-contact">
+        <header id="header" class="header d-flex align-items-center fixed-top">
+            <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+                <a href="#" class="logo d-flex align-items-center">
+                    <h1 class="d-flex align-items-center">Portafolio ADMIN</h1>
+                </a>
+        
+                <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+                <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a href="{% url 'index' %}" class="active">Sitio Web</a></li>
+                        {% if request.user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        {% block content %} {% endblock content %}
+        
+        <footer id="footer" class="footer">
+            <div class="footer-legal">
+                <div class="container">
+                    <div class="copyright">
+                        Derechos reservados © Copyright <strong><span>Carlos Wílder Yrigoín Domínguez</span></strong>.
+                    </div>
+                    <div class="credits">Desarrollador Backend en SILABUZ</div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/aos.js' %}"></script>
+        <script src="{% static 'js/glightbox.min.js' %}"></script>
+        <script src="{% static 'js/swiper.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

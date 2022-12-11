@@ -1,0 +1,55 @@
+{% extends "../base.html" %} 
+{% block content %}
+    <section id="hero" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <h2 data-aos="fade-up">Carlos Yrigoín Domínguez</h2>
+                    <blockquote data-aos="fade-up" data-aos-delay="100">
+                        <p>Portafolio de proyectos desarrollados, con interés en el desarrollo de sistemas de información web, aplicaciones móviles, administración de base de datos, inteligencia de negocios, inteligencia artificial y gestión de proyectos.</p>
+                    </blockquote>
+                    <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <a href="{% url 'administracion' %}" class="btn-get-started">Registrar más proyectos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portafolio" class="recent-posts">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header"><h2>Portafolio</h2></div>
+            <div class="row gy-5">
+                {% for p in portafolios %}
+                    <div class="col-xl-3 col-md-6 mb-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="post-box">
+                            <div class="post-img">
+                                <img src="{{ p.foto }}" class="img-fluid" alt="">
+                            </div>
+                            <div class="meta">
+                                <span class="post-date">{{ p.created_at }}</span>
+                            </div>
+                            <h3 class="post-title">{{ p.titulo }}</h3>
+                            <p>{{ p.descripcion }}</p>
+                            <a href="{{ p.urlgithub }}" class="readmore stretched-link" target="_blank">
+                                <span>Ver GitHub</span><i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="call-to-action" class="call-to-action">
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h3><i>Rory Burke</i></h3>
+                    <p>La gestión del proyecto se puede definir como una forma de desarrollar la estructura en un proyecto complejo, donde las variables independientes de tiempo, costo, recursos y comportamiento humano se juntan.</p>
+                    <a class="cta-btn" href="{% url 'administracion' %}">Registrar portafolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

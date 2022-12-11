@@ -1,0 +1,24 @@
+{% extends "../admin.html" %} 
+{% block content %}
+    <section id="contact" class="contact">
+        <div class="container position-relative" data-aos="fade-up">
+            <div class="row gy-4 d-flex justify-content-center">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="250">
+                    <h3 class="text-center">Registrarse</h3> <hr>
+                    <form class="mt-5" method="post" novalidate>
+                        {% csrf_token %} {{ form.as_p }}
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary">Crear Usuario</button> <hr>
+                            <a href="{% url 'login' %}">Iniciar sesión</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+    <script>
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach((input) => input.classList.add("form-control"));
+    </script>
+{% endblock content %}

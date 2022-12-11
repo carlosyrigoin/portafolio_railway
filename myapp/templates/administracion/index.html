@@ -1,0 +1,53 @@
+{% extends "../admin.html" %} 
+{% block content %}
+    <div class="container mt-5"> <br>
+        <h4 class="text-center mt-5"><i class="bi-file-text"></i> Lista de portafolios</h4> <hr>
+
+        <div class="mt-2 mb-2">
+            <a href="{% url 'portafolio' %}" class="btn btn-primary"><i class="bi-plus-square"></i> Nuevo registro</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Descripción</th>
+                        <th>Tags</th>
+                        <th>URL GIT</th>
+                        <th>Foto</th>
+                        <th>Creación</th>
+                        <th>Actualización</th>
+                        <th width="10"><i class="bi-trash"></i></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in portafolios %}
+                        <tr>
+                            <td>{{ p.titulo }}</td>
+                            <td>{{ p.descripcion }}</td>
+                            <td><span class="badge bg-primary">{{ p.tags }}</span></td>
+                            <td><a href="{{ p.urlgithub }}" target="_blank">{{ p.urlgithub }}</a></td>
+                            <td><a href="{{ p.foto }}" target="_blank">Ver foto</a></td>
+                            <td>{{ p.created_at }}</td>
+                            <td>{{ p.updated_at }}</td>
+                            <td>
+                                <a href="/delete/{{ p.id }}" class="btn btn-danger btn-sm"><i class="bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 offset-md-7">
+                <h6 class="text-center text-primary"><i class="bi-file-text"></i> 5 últimas visitas registradas</h6>
+                <ul class="list-group">
+                    {% for v in visitas %}
+                        <li class="list-group-item">{{ v.ip }} <i>{{ v.created_at}}</i></li>
+                    {% endfor %}
+                  </ul>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
